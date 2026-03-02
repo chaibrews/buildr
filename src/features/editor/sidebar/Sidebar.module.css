@@ -56,6 +56,8 @@
   display: flex;
   align-items: center;
   transition: transform 120ms ease;
+  padding-left: 16px; /* ← add this — creates space where the handle lives */
+  margin-left: -16px; /* ← offset so visual position doesn't change */
 }
 
 .sidebarItemWrapper:hover {
@@ -70,7 +72,7 @@
 
 .dragHandle {
   position: absolute;
-  left: -16px;
+  left: -2px;
 
   width: 8px;
   height: 20px;
@@ -104,6 +106,11 @@
   transform: translateX(0);
 }
 
+.sidebarItemWrapper:not(:hover) .dragHandle {
+  transition:
+    opacity 300ms ease 150ms,
+    transform 300ms ease 150ms;
+}
 /* ---------------- ICON ---------------- */
 
 .icon {
