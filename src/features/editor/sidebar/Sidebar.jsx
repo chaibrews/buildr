@@ -61,7 +61,7 @@ function Sidebar({
   }
 
   return (
-    <nav className={styles.sidebar}>
+    <nav className={`${styles.sidebar} print-hide`}>
       {/* ───────── FIXED PERSONAL (NOT DRAGGABLE) ───────── */}
       <button
         className={activeSection === FIXED_SECTION ? styles.active : ""}

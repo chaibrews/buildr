@@ -41,8 +41,8 @@ function Preview({ data, sectionOrder }) {
   ].filter(Boolean);
 
   return (
-    <div className={styles.previewLayout}>
-      <div className={styles.a4Page}>
+    <div className={`${styles.previewLayout} print-preview-layout`}>
+      <div className={`${styles.a4Page} print-a4`}>
         {/* PERSONAL HEADER */}
         {(personal.name || contactLinks.length > 0) && (
           <header className={styles.previewHeader}>

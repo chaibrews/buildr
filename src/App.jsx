@@ -64,7 +64,7 @@ function App() {
 
   return (
     <>
-      <div className="header">buildR.</div>
+      <div className="header print-hide">buildR.</div>
       <div className="body">
         <div className="app">
           <Editor

@@ -1,7 +1,6 @@
 import styles from "./Editor.module.css";
 import { useState } from "react";
 import Sidebar from "./sidebar/Sidebar";
-
 import Personal from "./sections/Personal";
 import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
@@ -30,7 +29,7 @@ function Editor({
   const ActiveSectionComponent = SECTIONS[activeSection];
 
   return (
-    <div className={styles.editorLayout}>
+    <div className={`${styles.editorLayout} print-hide`}>
       <div className={styles.editorActions}>
         <button className={styles.clearBtn} onClick={onClear}>
           CLEAR ALL

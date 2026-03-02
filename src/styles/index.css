@@ -43,3 +43,49 @@ li {
   justify-content: space-between;
   gap: 8px;
 }
+
+/* =====================================================
+   PRINT / PDF STYLES
+   ===================================================== */
+
+@media print {
+  /* Hide editor UI */
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Reset everything wrapping the a4 page */
+  .body,
+  .print-preview-layout {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* The a4 page itself */
+  .print-a4 {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+  }
+
+  /* Prevent scaling issues */
+  * {
+    box-sizing: border-box;
+  }
+
+  section {
+    break-inside: avoid;
+  }
+}
+
+/* =====================================================
+   PAGE SETUP
+   ===================================================== */
+
+@page {
+  size: A4;
+  margin: 0;
+}

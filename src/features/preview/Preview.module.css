@@ -56,7 +56,7 @@
   line-height: 1.4;
 }
 
-a {
+.a4Page a {
   color: inherit;
   text-decoration: none;
 }
@@ -65,7 +65,7 @@ a {
    SECTIONS & ROWS
    ===================================================== */
 
-section {
+.a4Page section {
   margin-bottom: 4mm;
   break-inside: avoid;
 }
@@ -101,44 +101,4 @@ section {
   margin: 4mm 0;
   border: none;
   border-top: 1px solid #000;
-}
-
-/* =====================================================
-   PRINT / PDF STYLES
-   ===================================================== */
-
-@media print {
-  /* Hide editor UI */
-  .editorLayout,
-  .sidebar,
-  .downloadBtn {
-    display: none !important;
-  }
-
-  /* Reset screen layout */
-  body,
-  .previewLayout {
-    margin: 0;
-    padding: 0;
-    display: block;
-    background: none;
-  }
-
-  /* Prevent scaling issues */
-  * {
-    box-sizing: border-box;
-  }
-
-  section {
-    break-inside: avoid;
-  }
-}
-
-/* =====================================================
-   PAGE SETUP
-   ===================================================== */
-
-@page {
-  size: A4;
-  margin: 0;
 }
