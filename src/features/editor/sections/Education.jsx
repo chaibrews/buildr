@@ -21,7 +21,7 @@ function Education({ data, setData }) {
     data.education,
     setData,
     "education",
-    emptyData.education[0],
+    emptyData.education,
   );
 
   return (

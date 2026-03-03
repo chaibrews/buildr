@@ -11,7 +11,7 @@ function Skills({ data, setData }) {
     updateItem,
     deleteItem,
     addItem,
-  } = useEditableList(data.skills, setData, "skills", emptyData.skills[0]);
+  } = useEditableList(data.skills, setData, "skills", emptyData.skills);
 
   return (
     <section>

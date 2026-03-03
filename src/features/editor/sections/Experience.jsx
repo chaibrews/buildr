@@ -22,7 +22,7 @@ function Experience({ data, setData }) {
     data.experience,
     setData,
     "experience",
-    emptyData.experience[0],
+    emptyData.experience,
   );
 
   return (
