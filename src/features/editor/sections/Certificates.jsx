@@ -2,6 +2,7 @@ import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import deleteIcon from "../../../assets/icons/delete.svg";
 import { emptyData } from "../../../data";
+import FormField from "../../../components/FormField";
 
 const CERTIFICATE_FIELDS = [
   ["name", "NAME *"],
@@ -65,16 +66,13 @@ function Certificates({ data, setData }) {
         <>
           {/* EDIT VIEW — shown when an item is selected */}
           {CERTIFICATE_FIELDS.map(([name, label]) => (
-            <div className={styles.formGroup} key={name}>
-              <label htmlFor={name}>{label}</label>
-              <input
-                className={styles.formControl}
-                name={name}
-                id={name}
-                value={cert[name]}
-                onChange={(e) => updateItem(e.target.name, e.target.value)}
-              />
-            </div>
+            <FormField
+              key={name}
+              name={name}
+              label={label}
+              value={cert[name]}
+              onChange={(e) => updateItem(e.target.name, e.target.value)}
+            ></FormField>
           ))}
 
           {/* Action buttons for the active item */}

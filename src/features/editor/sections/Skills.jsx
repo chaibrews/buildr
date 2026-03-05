@@ -2,6 +2,7 @@ import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import deleteIcon from "../../../assets/icons/delete.svg";
 import { emptyData } from "../../../data";
+import FormField from "../../../components/FormField";
 
 function Skills({ data, setData }) {
   const {
@@ -55,28 +56,19 @@ function Skills({ data, setData }) {
         <>
           {/* EDIT VIEW — shown when an item is selected */}
 
-          <div className={styles.formGroup}>
-            <label htmlFor="groupName">SKILL GROUP</label>
-            <input
-              className={styles.formControl}
-              name="groupName"
-              id="groupName"
-              value={skill.groupName}
-              onChange={(e) => updateItem(e.target.name, e.target.value)}
-            ></input>
-          </div>
+          <FormField
+            name="groupName"
+            label="SKILL GROUP"
+            value={skill.groupName}
+            onChange={(e) => updateItem(e.target.name, e.target.value)}
+          />
 
-          <div className={styles.formGroup}>
-            <label htmlFor="items">LIST OF SKILLS</label>
-
-            <textarea
-              className={styles.formControl}
-              name="items"
-              id="items"
-              value={skill.items}
-              onChange={(e) => updateItem(e.target.name, e.target.value)}
-            />
-          </div>
+          <FormField
+            name="items"
+            label="LIST OF SKILLS"
+            value={skill.items}
+            onChange={(e) => updateItem(e.target.name, e.target.value)}
+          />
 
           {/* Action buttons for the active item */}
           <div className={styles.actionButtons}>

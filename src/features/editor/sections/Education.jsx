@@ -2,6 +2,8 @@ import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import deleteIcon from "../../../assets/icons/delete.svg";
 import { emptyData } from "../../../data";
+import FormField from "../../../components/FormField";
+import FormTextArea from "../../../components/FormTextArea";
 
 const EDUCATION_FIELDS = [
   ["school", "SCHOOL *"],
@@ -66,29 +68,21 @@ function Education({ data, setData }) {
         <>
           {/* EDIT VIEW — shown when an item is selected */}
           {EDUCATION_FIELDS.map(([name, label]) => (
-            <div className={styles.formGroup} key={name}>
-              <label htmlFor={name}>{label}</label>
-              <input
-                className={styles.formControl}
-                name={name}
-                id={name}
-                value={edu[name]}
-                onChange={(e) => updateItem(e.target.name, e.target.value)}
-              />
-            </div>
-          ))}
-
-          <div className={styles.formGroup}>
-            <label htmlFor="description">DESCRIPTION</label>
-
-            <textarea
-              className={styles.formControl}
-              name="description"
-              id="description"
-              value={edu.description}
+            <FormField
+              key={name}
+              name={name}
+              label={label}
+              value={edu[name]}
               onChange={(e) => updateItem(e.target.name, e.target.value)}
             />
-          </div>
+          ))}
+
+          <FormTextArea
+            name="description"
+            label="DESCRIPTION"
+            value={edu.description}
+            onChange={(e) => updateItem(e.target.name, e.target.value)}
+          />
 
           {/* Action buttons for the active item */}
           <div className={styles.actionButtons}>
