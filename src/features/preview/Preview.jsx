@@ -17,7 +17,16 @@ function Preview({ data, sectionOrder }) {
   const { personal } = data;
 
   const contactLinks = [
-    personal.email && <span key="email">{personal.email}</span>,
+    personal.email && (
+      <a
+        key="email"
+        href={`mailto:${personal.email}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {personal.email}
+      </a>
+    ),
     personal.linkPortfolio && (
       <a
         key="portfolio"
