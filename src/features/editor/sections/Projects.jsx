@@ -1,4 +1,4 @@
-import styles from "../EditorForm.module.css";
+import styles from "../Editor.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
