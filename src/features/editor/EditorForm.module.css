@@ -1,27 +1,4 @@
-.listItem {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-  background-color: #c7d1ea;
-  text-align: left;
-  font-size: 14px;
-  transition:
-    background-color 0.2s ease,
-    transform 0.1s ease;
-}
-
-.listItem:hover {
-  background-color: #eef2f7;
-}
-
-.actionButtons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.addButton,
-.saveButton {
+.addButton {
   all: unset;
   background-color: var(--accent);
   padding: 4px 8px;
@@ -31,19 +8,7 @@
   cursor: pointer;
 }
 
-.deleteButton {
-  all: unset;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.deleteIcon {
-  height: 20px;
-}
-
-.addButton:hover,
-.saveButton:hover,
-.deleteButton:hover {
+.addButton:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
