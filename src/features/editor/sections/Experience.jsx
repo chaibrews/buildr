@@ -1,9 +1,11 @@
 import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
-import deleteIcon from "../../../assets/icons/delete.svg";
 import { emptyData } from "../../../data";
+
 import FormField from "../../../components/FormField";
 import FormTextArea from "../../../components/FormTextArea";
+import SectionListItem from "../../../components/SectionListItem";
+import SectionFormActions from "../../../components/SectionFormActions";
 
 const EXPERIENCE_FIELDS = [
   ["company", "COMPANY *"],
@@ -31,43 +33,27 @@ function Experience({ data, setData }) {
     <section>
       <h2>Experience</h2>
 
-      {/* LIST VIEW — shown when no item is selected */}
+      {/* LIST VIEW */}
       {activeId === null ? (
         <>
           <ul>
             {data.experience.map((item) => (
-              <li key={item.id}>
-                {/* Clicking the item selects it for editing */}
-                <button
-                  className={styles.listItem}
-                  onClick={() => setActiveId(item.id)}
-                >
-                  {item.company || "Untitled"}
-                </button>
-
-                {/* Button to delete the experience entry */}
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => deleteItem(item.id)}
-                >
-                  <img
-                    src={deleteIcon}
-                    alt="Delete"
-                    className={styles.deleteIcon}
-                  />
-                </button>
-              </li>
+              <SectionListItem
+                key={item.id}
+                label={item.company}
+                onSelect={() => setActiveId(item.id)}
+                onDelete={() => deleteItem(item.id)}
+              />
             ))}
           </ul>
 
-          {/* Button to add a new experience entry */}
           <button className={styles.addButton} onClick={addItem}>
             + Add Experience
           </button>
         </>
       ) : (
         <>
-          {/* EDIT VIEW — shown when an item is selected */}
+          {/* EDIT VIEW */}
           {EXPERIENCE_FIELDS.map(([name, label]) => (
             <FormField
               key={name}
@@ -85,24 +71,10 @@ function Experience({ data, setData }) {
             onChange={(e) => updateItem(e.target.name, e.target.value)}
           />
 
-          {/* Action buttons for the active item */}
-          <div className={styles.actionButtons}>
-            {/* Delete the currently edited item */}
-            <button
-              className={styles.deleteButton}
-              onClick={() => deleteItem(exp.id)}
-            >
-              Delete
-            </button>
-
-            {/* Exit edit mode and return to list view */}
-            <button
-              className={styles.saveButton}
-              onClick={() => setActiveId(null)}
-            >
-              Save
-            </button>
-          </div>
+          <SectionFormActions
+            onDelete={() => deleteItem(exp.id)}
+            onSave={() => setActiveId(null)}
+          />
         </>
       )}
     </section>

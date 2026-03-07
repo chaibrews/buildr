@@ -1,9 +1,11 @@
 import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
-import deleteIcon from "../../../assets/icons/delete.svg";
 import { emptyData } from "../../../data";
+
 import FormField from "../../../components/FormField";
 import FormTextArea from "../../../components/FormTextArea";
+import SectionListItem from "../../../components/SectionListItem";
+import SectionFormActions from "../../../components/SectionFormActions";
 
 const EDUCATION_FIELDS = [
   ["school", "SCHOOL *"],
@@ -30,43 +32,27 @@ function Education({ data, setData }) {
     <section>
       <h2>Education</h2>
 
-      {/* LIST VIEW — shown when no item is selected */}
+      {/* LIST VIEW */}
       {activeId === null ? (
         <>
           <ul>
             {data.education.map((item) => (
-              <li key={item.id}>
-                {/* Clicking the item selects it for editing */}
-                <button
-                  className={styles.listItem}
-                  onClick={() => setActiveId(item.id)}
-                >
-                  {item.school || "Untitled"}
-                </button>
-
-                {/* Button to delete the education entry */}
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => deleteItem(item.id)}
-                >
-                  <img
-                    src={deleteIcon}
-                    alt="Delete"
-                    className={styles.deleteIcon}
-                  />
-                </button>
-              </li>
+              <SectionListItem
+                key={item.id}
+                label={item.school}
+                onSelect={() => setActiveId(item.id)}
+                onDelete={() => deleteItem(item.id)}
+              />
             ))}
           </ul>
 
-          {/* Button to add a new education entry */}
           <button className={styles.addButton} onClick={addItem}>
             + Add Education
           </button>
         </>
       ) : (
         <>
-          {/* EDIT VIEW — shown when an item is selected */}
+          {/* EDIT VIEW */}
           {EDUCATION_FIELDS.map(([name, label]) => (
             <FormField
               key={name}
@@ -84,24 +70,10 @@ function Education({ data, setData }) {
             onChange={(e) => updateItem(e.target.name, e.target.value)}
           />
 
-          {/* Action buttons for the active item */}
-          <div className={styles.actionButtons}>
-            {/* Delete the currently edited item */}
-            <button
-              className={styles.deleteButton}
-              onClick={() => deleteItem(edu.id)}
-            >
-              Delete
-            </button>
-
-            {/* Exit edit mode and return to list view */}
-            <button
-              className={styles.saveButton}
-              onClick={() => setActiveId(null)}
-            >
-              Save
-            </button>
-          </div>
+          <SectionFormActions
+            onDelete={() => deleteItem(edu.id)}
+            onSave={() => setActiveId(null)}
+          />
         </>
       )}
     </section>

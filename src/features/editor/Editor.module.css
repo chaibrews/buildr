@@ -18,8 +18,7 @@
 }
 
 .editorActions button {
-  flex: 1 0 auto;
-
+  flex: 1 1 auto;
   padding: 8px 18px;
   font-size: 12px;
   font-weight: 500;
