@@ -16,7 +16,7 @@ function EducationSection({ education }) {
             </div>
           )}
           {edu.degree && <i>{edu.degree}</i>}
-          {renderBullets(edu.description, styles.previewBullets)}
+          {renderBullets(edu.bullets, styles.previewBullets)}
         </div>
       ))}
     </section>

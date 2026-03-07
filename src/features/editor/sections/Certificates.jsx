@@ -1,6 +1,6 @@
 import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
-import { emptyData } from "../../../data";
+import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
 import SectionListItem from "../../../components/SectionListItem";
@@ -24,7 +24,7 @@ function Certificates({ data, setData }) {
     data.certificates,
     setData,
     "certificates",
-    emptyData.certificates,
+    EMPTY_ITEMS.certificates,
   );
 
   return (

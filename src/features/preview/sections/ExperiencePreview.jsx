@@ -18,7 +18,7 @@ function ExperienceSection({ experience }) {
             </div>
           )}
           {exp.company && <i>{exp.company}</i>}
-          {renderBullets(exp.description, styles.previewBullets)}
+          {renderBullets(exp.bullets, styles.previewBullets)}
         </div>
       ))}
     </section>

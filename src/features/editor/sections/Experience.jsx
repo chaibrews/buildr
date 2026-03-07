@@ -1,9 +1,9 @@
 import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
-import { emptyData } from "../../../data";
+import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
-import FormTextArea from "../../../components/FormTextArea";
+import BulletListEditor from "../../../components/BulletListEditor";
 import SectionListItem from "../../../components/SectionListItem";
 import SectionFormActions from "../../../components/SectionFormActions";
 
@@ -26,7 +26,7 @@ function Experience({ data, setData }) {
     data.experience,
     setData,
     "experience",
-    emptyData.experience,
+    EMPTY_ITEMS.experience,
   );
 
   return (
@@ -64,11 +64,9 @@ function Experience({ data, setData }) {
             />
           ))}
 
-          <FormTextArea
-            name="description"
-            label="DESCRIPTION"
-            value={exp.description}
-            onChange={(e) => updateItem(e.target.name, e.target.value)}
+          <BulletListEditor
+            bullets={exp.bullets}
+            onChange={(updated) => updateItem("bullets", updated)}
           />
 
           <SectionFormActions

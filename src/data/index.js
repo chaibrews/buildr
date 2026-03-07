@@ -1,2 +1,2 @@
-export { emptyData } from "./empty";
+export { emptyData, EMPTY_ITEMS } from "./empty";
 export { sampleData } from "./sample";

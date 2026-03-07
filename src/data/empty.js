@@ -1,50 +1,24 @@
-export const emptyData = {
-  personal: {
-    name: "",
-    email: "",
-    linkPortfolio: "",
-    linkGithub: "",
+export const EMPTY_ITEMS = {
+  experience: {
+    company: "",
+    position: "",
+    dateFrom: "",
+    dateTo: "",
+    bullets: [],
   },
-  education: [
-    {
-      id: crypto.randomUUID(),
-      school: "",
-      degree: "",
-      dateGraduated: "",
-      description: "",
-    },
-  ],
-  experience: [
-    {
-      id: crypto.randomUUID(),
-      company: "",
-      position: "",
-      description: "",
-      dateFrom: "",
-      dateTo: "",
-    },
-  ],
-  skills: [
-    {
-      id: crypto.randomUUID(),
-      groupName: "",
-      items: [],
-    },
-  ],
-  projects: [
-    {
-      id: crypto.randomUUID(),
-      title: "",
-      link: "",
-      description: "",
-    },
-  ],
-  certificates: [
-    {
-      id: crypto.randomUUID(),
-      name: "",
-      organization: "",
-      dateIssued: "",
-    },
-  ],
+  education: { school: "", degree: "", dateGraduated: "", bullets: [] },
+  projects: { title: "", link: "", bullets: [] },
+  skills: { groupName: "", items: "" },
+  certificates: { name: "", organization: "", dateIssued: "" },
 };
+
+export function emptyData() {
+  return {
+    personal: { name: "", email: "", linkPortfolio: "", linkGithub: "" },
+    experience: [{ id: crypto.randomUUID(), ...EMPTY_ITEMS.experience }],
+    education: [{ id: crypto.randomUUID(), ...EMPTY_ITEMS.education }],
+    projects: [{ id: crypto.randomUUID(), ...EMPTY_ITEMS.projects }],
+    skills: [{ id: crypto.randomUUID(), ...EMPTY_ITEMS.skills }],
+    certificates: [{ id: crypto.randomUUID(), ...EMPTY_ITEMS.certificates }],
+  };
+}

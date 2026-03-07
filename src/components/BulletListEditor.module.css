@@ -1,0 +1,74 @@
+/* components/BulletListEditor.module.css */
+.bulletEditor {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.label {
+  color: var(--accent);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.bulletRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.dot {
+  color: var(--accent);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.bulletInput {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: #c7d1ea;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.bulletInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--secondary);
+  outline: none;
+  background-color: #eef2f7;
+}
+
+.deleteBullet {
+  all: unset;
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+  flex-shrink: 0;
+}
+
+.deleteBullet:hover {
+  opacity: 1;
+}
+
+.addBullet {
+  all: unset;
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  margin-top: 4px;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.addBullet:hover {
+  opacity: 1;
+}

@@ -23,7 +23,7 @@ function ProjectsSection({ projects }) {
               )}
             </div>
           )}
-          {renderBullets(proj.description, styles.previewBullets)}
+          {renderBullets(proj.bullets, styles.previewBullets)}
         </div>
       ))}
     </section>

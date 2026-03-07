@@ -1,9 +1,9 @@
 import styles from "../EditorForm.module.css";
 import useEditableList from "../../../hooks/useEditableList";
-import { emptyData } from "../../../data";
+import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
-import FormTextArea from "../../../components/FormTextArea";
+import BulletListEditor from "../../../components/BulletListEditor";
 import SectionListItem from "../../../components/SectionListItem";
 import SectionFormActions from "../../../components/SectionFormActions";
 
@@ -25,7 +25,7 @@ function Education({ data, setData }) {
     data.education,
     setData,
     "education",
-    emptyData.education,
+    EMPTY_ITEMS.education,
   );
 
   return (
@@ -63,11 +63,9 @@ function Education({ data, setData }) {
             />
           ))}
 
-          <FormTextArea
-            name="description"
-            label="DESCRIPTION"
-            value={edu.description}
-            onChange={(e) => updateItem(e.target.name, e.target.value)}
+          <BulletListEditor
+            bullets={edu.bullets}
+            onChange={(updated) => updateItem("bullets", updated)}
           />
 
           <SectionFormActions

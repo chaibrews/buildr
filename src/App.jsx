@@ -15,11 +15,29 @@ const DEFAULT_ORDER = [
   "certificates",
 ];
 
+function migrateData(saved) {
+  function toBullets(item) {
+    if (Array.isArray(item.bullets)) return item; // already migrated
+    return {
+      ...item,
+      bullets: item.description?.split("\n").filter(Boolean) ?? [],
+      description: undefined,
+    };
+  }
+
+  return {
+    ...saved,
+    experience: saved.experience?.map(toBullets) ?? [],
+    education: saved.education?.map(toBullets) ?? [],
+    projects: saved.projects?.map(toBullets) ?? [],
+  };
+}
+
 function App() {
   const [data, setData] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : emptyData;
+      return saved ? migrateData(JSON.parse(saved)) : emptyData();
     } catch {
       return sampleData;
     }
@@ -53,10 +71,9 @@ function App() {
   function clearResume() {
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem("buildr:sectionOrder");
-    setData(emptyData);
+    setData(emptyData());
     setSectionOrder(DEFAULT_ORDER);
   }
-
   function loadSample() {
     setData(sampleData);
     setSectionOrder(DEFAULT_ORDER);
