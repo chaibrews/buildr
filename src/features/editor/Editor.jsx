@@ -20,10 +20,12 @@ const SECTIONS = {
 function Editor({
   data,
   setData,
-  sectionOrder,
-  setSectionOrder,
+  onExport,
+  onImport,
   onClear,
   onLoadSample,
+  sectionOrder,
+  setSectionOrder,
 }) {
   const [activeSection, setActiveSection] = useState("personal");
   const ActiveSectionComponent = SECTIONS[activeSection];
@@ -31,15 +33,45 @@ function Editor({
   return (
     <div className={`${styles.editorLayout} print-hide`}>
       <div className={styles.editorActions}>
-        <button className={styles.clearBtn} onClick={onClear}>
-          CLEAR ALL
-        </button>
-        <button className={styles.loadBtn} onClick={onLoadSample}>
-          LOAD SAMPLE
-        </button>
-        <button className={styles.downloadBtn} onClick={() => window.print()}>
-          SAVE AS PDF
-        </button>
+        {/* Left — destructive */}
+        <div className={styles.actionGroup}>
+          <button className={styles.dangerBtn} onClick={onClear}>
+            CLEAR
+          </button>
+        </div>
+
+        {/* Center — utility */}
+        <div className={styles.actionGroup}>
+          <button className={styles.utilityBtn} onClick={onLoadSample}>
+            SAMPLE
+          </button>
+          <input
+            type="file"
+            accept=".json"
+            id="import-input"
+            style={{ display: "none" }}
+            onChange={(e) => {
+              onImport(e);
+              e.target.value = "";
+            }}
+          />
+          <button
+            className={styles.utilityBtn}
+            onClick={() => document.getElementById("import-input").click()}
+          >
+            IMPORT
+          </button>
+          <button className={styles.utilityBtn} onClick={onExport}>
+            EXPORT
+          </button>
+        </div>
+
+        {/* Right — primary */}
+        <div className={styles.actionGroup}>
+          <button className={styles.primaryBtn} onClick={() => window.print()}>
+            SAVE AS PDF
+          </button>
+        </div>
       </div>
 
       <div className={styles.editorSidebar}>

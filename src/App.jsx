@@ -11,6 +11,8 @@ function App() {
     setSectionOrder,
     clearResume,
     loadSample,
+    exportData,
+    importData,
   } = useResumeData();
 
   return (
@@ -23,6 +25,8 @@ function App() {
             setData={setData}
             onClear={clearResume}
             onLoadSample={loadSample}
+            onExport={exportData}
+            onImport={importData}
             sectionOrder={sectionOrder}
             setSectionOrder={setSectionOrder}
           />

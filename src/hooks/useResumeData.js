@@ -79,6 +79,32 @@ export default function useResumeData() {
     setSectionOrder(DEFAULT_ORDER);
   }
 
+  function exportData() {
+    const json = JSON.stringify(data, null, 2);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "buildr-resume.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function importData(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const parsed = JSON.parse(event.target.result);
+        setData(migrateData(parsed));
+      } catch {
+        alert("Invalid file. Please upload a valid buildR JSON file.");
+      }
+    };
+    reader.readAsText(file);
+  }
+
   return {
     data,
     setData,
@@ -86,5 +112,7 @@ export default function useResumeData() {
     setSectionOrder,
     clearResume,
     loadSample,
+    exportData,
+    importData,
   };
 }
