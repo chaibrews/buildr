@@ -1,6 +1,6 @@
 # buildR.
 
-![Preview](./src/assets/preview/preview-3.png)
+![Preview](./src/assets/preview/preview-4.png)
 
 <h4>
     <a href="https://cv-buildr.vercel.app/" target="_blank">
