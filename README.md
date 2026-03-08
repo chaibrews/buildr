@@ -21,7 +21,7 @@
 
 Many engineers struggle with resumes not because of lack of experience, but because of poor structure and formatting.
 
-The [r/EngineeringResumes](https://www.reddit.com/r/EngineeringResumes/wiki/index/) wiki consistently highlights what actually gets interviews — clean single-column layouts, strong bullet points, strict one-page discipline. A widely-used [Overleaf template](https://www.overleaf.com/project/662939053eb1dc8f0f3c617f) from that community became the visual and structural reference for buildR.
+The [r/EngineeringResumes](https://www.reddit.com/r/EngineeringResumes/wiki/index/) wiki consistently highlights what actually gets interviews — clean single-column layouts, strong bullet points, strict one-page discipline. A widely-used template from that community became the visual and structural reference for buildR.
 
 The goal was to take that proven format and make it accessible without LaTeX knowledge, manual tweaking, or paid tools.
 
