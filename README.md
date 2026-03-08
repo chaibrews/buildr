@@ -31,6 +31,7 @@ The goal was to take that proven format and make it accessible without LaTeX kno
 - **Section-based editor** — each resume section has a dedicated form
 - **Drag-and-drop reordering** — arrange sections in any order via the sidebar
 - **Bullet point editor** — add, edit, and remove individual bullet points per entry
+- **Import / Export JSON** — save your resume data to a file and reload it later
 - **Strict A4 format** — enforces single-page discipline by design
 - **Export to PDF** — print-ready output via the browser's native print dialog
 - **Local persistence** — resume data is saved to localStorage automatically
@@ -39,7 +40,7 @@ The goal was to take that proven format and make it accessible without LaTeX kno
 
 - Desktop only — no mobile layout
 - Single page — content that exceeds A4 height is clipped by design
-- No cloud sync — data lives in localStorage only
+- No cloud sync — data lives in localStorage and exported JSON only
 
 ## Local Development
 
