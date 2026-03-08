@@ -1,4 +1,5 @@
 import styles from "./BulletListEditor.module.css";
+import buttonStyles from "../components/buttons.module.css";
 
 function BulletListEditor({ bullets = [], onChange }) {
   function handleChange(index, value) {
@@ -19,7 +20,6 @@ function BulletListEditor({ bullets = [], onChange }) {
 
       {bullets.map((bullet, index) => (
         <div key={index} className={styles.bulletRow}>
-          <span className={styles.dot}>•</span>
           <input
             className={styles.bulletInput}
             value={bullet}
@@ -27,7 +27,7 @@ function BulletListEditor({ bullets = [], onChange }) {
             onChange={(e) => handleChange(index, e.target.value)}
           />
           <button
-            className={styles.deleteBullet}
+            className={buttonStyles.deleteBtn}
             onClick={() => deleteBullet(index)}
           >
             ×
@@ -35,8 +35,11 @@ function BulletListEditor({ bullets = [], onChange }) {
         </div>
       ))}
 
-      <button className={styles.addBullet} onClick={addBullet}>
-        + Add Bullet
+      <button
+        className={buttonStyles.addBulletBtn + " " + buttonStyles.actionBtn}
+        onClick={addBullet}
+      >
+        + ADD BULLET
       </button>
     </div>
   );
