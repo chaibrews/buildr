@@ -17,7 +17,12 @@ function App() {
 
   return (
     <>
-      <div className="header print-hide">buildR.</div>
+      <header className={`header print-hide`}>
+        <div className="headerBrand">
+          <span className="headerLogo">buildR.</span>
+          <span className="headerTagline">clean resumes. no fluff.</span>
+        </div>
+      </header>{" "}
       <div className="body">
         <div className="app">
           <Editor

@@ -1,11 +1,30 @@
 .header {
   background-color: var(--primary);
+  padding: 12px 32px;
+  border-bottom: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+}
+
+.headerBrand {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.headerLogo {
   color: var(--accent);
-  padding: 16px;
   font-size: 18px;
-  text-align: center;
-  letter-spacing: 30%;
-  border-bottom: 3px solid var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+}
+
+.headerTagline {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.4;
+  letter-spacing: 0.05em;
 }
 
 .body {
