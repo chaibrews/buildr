@@ -10,7 +10,9 @@ function ProjectsSection({ projects }) {
       {projects.filter(hasAnyValue).map((proj) => (
         <div className={styles.sectionEntry} key={proj.id}>
           {(proj.title || proj.link) && (
-            <div className={styles.firstRow}>
+            <div
+              className={styles.spaceBetweenRow + " " + styles.beforeBullets}
+            >
               {proj.title && <strong>{proj.title}</strong>}
               {proj.link && (
                 <a

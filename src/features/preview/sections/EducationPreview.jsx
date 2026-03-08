@@ -10,12 +10,16 @@ function EducationSection({ education }) {
       {education.filter(hasAnyValue).map((edu) => (
         <div className={styles.sectionEntry} key={edu.id}>
           {(edu.school || edu.dateGraduated) && (
-            <div className={styles.firstRow}>
+            <div className={styles.spaceBetweenRow}>
               {edu.school && <strong>{edu.school}</strong>}
-              {edu.dateGraduated && <p>{edu.dateGraduated}</p>}
+              {edu.dateGraduated && (
+                <span className={styles.paragraph}>{edu.dateGraduated}</span>
+              )}
             </div>
           )}
-          {edu.degree && <i>{edu.degree}</i>}
+          <div className={styles.beforeBullets}>
+            {edu.degree && <i>{edu.degree}</i>}
+          </div>
           {renderBullets(edu.bullets, styles.previewBullets)}
         </div>
       ))}

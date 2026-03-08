@@ -53,24 +53,26 @@ function Preview({ data, sectionOrder }) {
   return (
     <div className={`${styles.previewLayout} print-preview-layout`}>
       <div className={`${styles.a4Page} print-a4`}>
-        {/* PERSONAL HEADER */}
-        {(personal.name || contactLinks.length > 0) && (
-          <header className={styles.previewHeader}>
-            {personal.name && <h1>{personal.name}</h1>}
-            {contactLinks.length > 0 && (
-              <p>{contactLinks.reduce((p, c) => [p, " • ", c])}</p>
-            )}
-          </header>
-        )}
+        <div className={`${styles.a4InsideMargin} print-a4`}>
+          {/* PERSONAL HEADER */}
+          {(personal.name || contactLinks.length > 0) && (
+            <header className={styles.previewHeader}>
+              {personal.name && <h1>{personal.name}</h1>}
+              {contactLinks.length > 0 && (
+                <p>{contactLinks.reduce((p, c) => [p, " • ", c])}</p>
+              )}
+            </header>
+          )}
 
-        {/* PROFESSIONAL SUMMARY */}
-        <SummaryPreview summary={data.summary} />
+          {/* PROFESSIONAL SUMMARY */}
+          <SummaryPreview summary={data.summary} />
 
-        {/* ORDERED SECTIONS */}
-        {sectionOrder.map((key) => {
-          const Section = SECTION_RENDERERS[key];
-          return Section ? <Section key={key} {...data} /> : null;
-        })}
+          {/* ORDERED SECTIONS */}
+          {sectionOrder.map((key) => {
+            const Section = SECTION_RENDERERS[key];
+            return Section ? <Section key={key} {...data} /> : null;
+          })}
+        </div>
       </div>
     </div>
   );

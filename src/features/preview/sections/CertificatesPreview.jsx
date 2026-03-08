@@ -10,9 +10,9 @@ function CertificatesSection({ certificates }) {
       {certificates.filter(hasAnyValue).map((cert) => (
         <div className={styles.sectionEntry} key={cert.id}>
           {(cert.name || cert.dateIssued) && (
-            <div className={styles.firstRow}>
+            <div className={styles.spaceBetweenRow}>
               {cert.name && <strong>{cert.name}</strong>}
-              {cert.dateIssued && <p>{cert.dateIssued}</p>}
+              {cert.dateIssued && <span>{cert.dateIssued}</span>}
             </div>
           )}
           {cert.organization && <i>{cert.organization}</i>}

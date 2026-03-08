@@ -8,7 +8,7 @@ function SkillsSection({ skills }) {
     <section>
       <h2>Skills</h2>
       {skills.filter(hasAnyValue).map((skill) => (
-        <div className={styles.sectionEntry} key={skill.id}>
+        <div className={styles.skillEntry} key={skill.id}>
           {skill.groupName && <strong>{skill.groupName}</strong>}
           {skill.items && (
             <>

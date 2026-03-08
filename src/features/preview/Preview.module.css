@@ -17,8 +17,13 @@
 .a4Page {
   width: 210mm;
   height: 297mm;
-  padding: 1.27cm;
   background: #fff;
+  padding: 1.27cm;
+}
+
+.a4InsideMargin {
+  width: 184.6mm;
+  height: 271.6mm;
   color: #000;
   box-shadow: none;
   overflow: hidden;
@@ -39,24 +44,25 @@
    TYPOGRAPHY
    ===================================================== */
 
-.a4Page h1 {
+/* NAME */
+.a4InsideMargin h1 {
   font-size: 24pt;
   font-weight: 400;
   margin-bottom: 1mm;
 }
 
-.a4Page h2 {
+/* SECTION HEADERS */
+.a4InsideMargin h2 {
   font-size: 14pt;
   margin-bottom: 1mm;
   border-bottom: 1px solid #000;
 }
 
-.a4Page p,
-.a4Page span {
-  line-height: 1.4;
+.a4InsideMargin p {
+  line-height: 1.2;
 }
 
-.a4Page a {
+.a4InsideMargin a {
   color: inherit;
   text-decoration: none;
 }
@@ -65,18 +71,26 @@
    SECTIONS & ROWS
    ===================================================== */
 
-.a4Page section {
+.a4InsideMargin section {
   margin-bottom: 4mm;
   break-inside: avoid;
 }
 
 .sectionEntry {
-  margin-bottom: 0.5mm;
+  margin-bottom: 2.5mm;
 }
 
-.firstRow {
+.skillEntry {
+  margin-bottom: 1mm;
+}
+
+.spaceBetweenRow {
   display: flex;
   justify-content: space-between;
+}
+
+.beforeBullets {
+  margin-bottom: 0.5mm;
 }
 
 /* =====================================================
@@ -90,7 +104,7 @@
 
 .previewBullets li {
   display: list-item;
-  margin-bottom: 0;
+  margin-bottom: 0.5mm;
 }
 
 /* =====================================================

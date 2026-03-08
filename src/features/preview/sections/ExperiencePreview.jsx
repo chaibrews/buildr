@@ -10,14 +10,18 @@ function ExperienceSection({ experience }) {
       {experience.filter(hasAnyValue).map((exp) => (
         <div className={styles.sectionEntry} key={exp.id}>
           {(exp.position || exp.dateFrom || exp.dateTo) && (
-            <div className={styles.firstRow}>
+            <div className={styles.spaceBetweenRow}>
               {exp.position && <strong>{exp.position}</strong>}
               {(exp.dateFrom || exp.dateTo) && (
-                <p>{[exp.dateFrom, exp.dateTo].filter(Boolean).join(" - ")}</p>
+                <span>
+                  {[exp.dateFrom, exp.dateTo].filter(Boolean).join(" - ")}
+                </span>
               )}
             </div>
           )}
-          {exp.company && <i>{exp.company}</i>}
+          <div className={styles.beforeBullets}>
+            {exp.company && <i>{exp.company}</i>}
+          </div>
           {renderBullets(exp.bullets, styles.previewBullets)}
         </div>
       ))}

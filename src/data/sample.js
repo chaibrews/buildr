@@ -32,7 +32,7 @@ export const sampleData = {
       bullets: [
         "XYZ format: Accomplished [X] as measured by [Y] by doing [Z]. Always quantify impact.",
         "STAR format: [Situation] needed [Task], so I [Action], resulting in [Result].",
-        "Start every bullet with a strong past-tense action verb. Shipped, reduced, built, led, designed.",
+        "Start every bullet with a strong past-tense action verb — shipped, reduced, built, led, designed.",
         "Each bullet = 1 sentence, 1–2 lines. If it spills to a 3rd line, cut it.",
       ],
     },
@@ -75,7 +75,7 @@ export const sampleData = {
       title: "Another Project | Tech Stack",
       link: "project.com",
       bullets: [
-        "The more experience you have, the less projects matter. Drop this section if your work history is strong.",
+        "The more experience you have, the less projects matter.",
         "If you list it, be ready to talk about every technical decision in an interview.",
       ],
     },

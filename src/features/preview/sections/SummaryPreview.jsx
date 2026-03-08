@@ -1,5 +1,3 @@
-import styles from "../Preview.module.css";
-
 function SummaryPreview({ summary }) {
   if (!summary?.description?.trim()) return null;
 
