@@ -1,5 +1,8 @@
-import styles from "./Editor.module.css";
 import { useState } from "react";
+
+import styles from "./Editor.module.css";
+import buttonStyles from "../../components/buttons.module.css";
+
 import Sidebar from "./sidebar/Sidebar";
 import Personal from "./sections/Personal";
 import Skills from "./sections/Skills";
@@ -35,14 +38,20 @@ function Editor({
       <div className={styles.editorActions}>
         {/* Left — destructive */}
         <div className={styles.actionGroup}>
-          <button className={styles.dangerBtn} onClick={onClear}>
+          <button
+            className={buttonStyles.dangerBtn + " " + buttonStyles.actionBtn}
+            onClick={onClear}
+          >
             CLEAR
           </button>
         </div>
 
         {/* Center — utility */}
         <div className={styles.actionGroup}>
-          <button className={styles.utilityBtn} onClick={onLoadSample}>
+          <button
+            className={buttonStyles.utilityBtn + " " + buttonStyles.actionBtn}
+            onClick={onLoadSample}
+          >
             SAMPLE
           </button>
           <input
@@ -56,19 +65,25 @@ function Editor({
             }}
           />
           <button
-            className={styles.utilityBtn}
+            className={buttonStyles.utilityBtn + " " + buttonStyles.actionBtn}
             onClick={() => document.getElementById("import-input").click()}
           >
             IMPORT
           </button>
-          <button className={styles.utilityBtn} onClick={onExport}>
+          <button
+            className={buttonStyles.utilityBtn + " " + buttonStyles.actionBtn}
+            onClick={onExport}
+          >
             EXPORT
           </button>
         </div>
 
         {/* Right — primary */}
         <div className={styles.actionGroup}>
-          <button className={styles.primaryBtn} onClick={() => window.print()}>
+          <button
+            className={buttonStyles.primaryBtn + " " + buttonStyles.actionBtn}
+            onClick={() => window.print()}
+          >
             SAVE AS PDF
           </button>
         </div>

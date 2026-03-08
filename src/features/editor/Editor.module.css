@@ -14,100 +14,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  /* gap: 12px; */
 }
-
-/* .editorActions button {
-  flex: 1 1 auto;
-  padding: 8px 18px;
-  font-size: 12px;
-  font-weight: 500;
-  background: var(--secondary);
-  color: var(--accent);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-
-  transition:
-    background-color 120ms ease,
-    color 120ms ease,
-    transform 120ms ease,
-    box-shadow 200ms ease;
-}
-
-.editorActions button:hover {
-  background: var(--accent);
-  color: var(--primary);
-
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-}
-
-.editorActions button:active {
-  transform: translateY(0) scale(0.97);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-} */
 
 .actionGroup {
   display: flex;
   gap: 8px;
   align-items: center;
-}
-
-.dangerBtn {
-  all: unset;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: #ff6b6b;
-  padding: 6px 12px;
-  border-radius: 5px;
-  border: 1px solid #ff6b6b33;
-  transition:
-    background-color 0.15s ease,
-    color 0.15s ease;
-}
-
-.dangerBtn:hover {
-  background-color: #ff6b6b22;
-}
-
-.utilityBtn {
-  all: unset;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  padding: 6px 12px;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  transition:
-    background-color 0.15s ease,
-    border-color 0.15s ease;
-}
-
-.utilityBtn:hover {
-  background-color: var(--secondary);
-  border-color: var(--accent);
-}
-
-.primaryBtn {
-  all: unset;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--primary);
-  background-color: var(--accent);
-  padding: 6px 14px;
-  border-radius: 5px;
-  transition: opacity 0.15s ease;
-}
-
-.primaryBtn:hover {
-  opacity: 0.85;
 }
 
 .editorContent {
@@ -125,21 +37,6 @@
   grid-row: 2 / 3;
   grid-column: 1 / 2;
   border-radius: 10px 0px 0px 10px;
-}
-
-.addButton {
-  all: unset;
-  background-color: var(--accent);
-  padding: 4px 8px;
-  color: var(--primary);
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.addButton:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 h2 {

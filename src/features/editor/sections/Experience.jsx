@@ -1,11 +1,11 @@
-import styles from "../Editor.module.css";
+import buttonStyles from "../../../components/buttons.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
 import BulletListEditor from "../../../components/BulletListEditor";
 import SectionListItem from "../../../components/SectionListItem";
-import SectionFormActions from "../../../components/SectionFormActions";
+import SectionFormActions from "../../../components/SectionEditActions";
 
 const EXPERIENCE_FIELDS = [
   ["company", "COMPANY *"],
@@ -47,8 +47,11 @@ function Experience({ data, setData }) {
             ))}
           </ul>
 
-          <button className={styles.addButton} onClick={addItem}>
-            + Add Experience
+          <button
+            className={buttonStyles.addBtn + " " + buttonStyles.actionBtn}
+            onClick={addItem}
+          >
+            + ADD EXPERIENCE
           </button>
         </>
       ) : (

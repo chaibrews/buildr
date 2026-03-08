@@ -1,0 +1,29 @@
+/* Section List Item */
+
+.listItem {
+  cursor: pointer;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: #c7d1ea;
+  text-align: left;
+  font-size: 14px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.listItem:hover {
+  background-color: #eef2f7;
+}
+
+.trashBtn {
+  all: unset;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.trashIcon {
+  height: 20px;
+}
