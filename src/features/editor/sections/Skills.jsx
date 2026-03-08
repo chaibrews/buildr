@@ -1,9 +1,9 @@
-import buttonStyles from "../../../components/buttons.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
 import SectionListItem from "../../../components/SectionListItem";
+import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 function Skills({ data, setData }) {
@@ -34,12 +34,11 @@ function Skills({ data, setData }) {
             ))}
           </ul>
 
-          <button
-            className={buttonStyles.addBtn + " " + buttonStyles.actionBtn}
-            onClick={addItem}
-          >
-            + ADD SKILLS
-          </button>
+          <SectionListActions
+            addLabel="ADD SKILLS"
+            onAdd={addItem}
+            onClearSection={() => setData((prev) => ({ ...prev, skills: [] }))}
+          />
         </>
       ) : (
         <>

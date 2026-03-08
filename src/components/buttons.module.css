@@ -5,7 +5,7 @@
 
 .listViewBtns {
   display: flex;
-  gap: 8px;
+  justify-content: space-between;
 }
 
 .actionBtn {
@@ -37,8 +37,19 @@
   border: 1px solid #ff6b6b33;
 }
 
-.dangerBtn:hover {
+.dangerBtnConfirm {
+  color: var(--primary);
+  background-color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+.dangerBtn:hover,
+.dangerBtnConfirm:hover {
   background-color: #ff6b6b22;
+}
+
+.dangerBtnConfirm:hover {
+  background-color: #ff6b6b;
 }
 
 .utilityBtn {

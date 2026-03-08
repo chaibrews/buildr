@@ -1,10 +1,10 @@
-import buttonStyles from "../../../components/buttons.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
 import BulletListEditor from "../../../components/BulletListEditor";
 import SectionListItem from "../../../components/SectionListItem";
+import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const EDUCATION_FIELDS = [
@@ -46,12 +46,13 @@ function Education({ data, setData }) {
             ))}
           </ul>
 
-          <button
-            className={buttonStyles.addBtn + " " + buttonStyles.actionBtn}
-            onClick={addItem}
-          >
-            + ADD EDUCATION
-          </button>
+          <SectionListActions
+            addLabel="ADD EDUCATION"
+            onAdd={addItem}
+            onClearSection={() =>
+              setData((prev) => ({ ...prev, education: [] }))
+            }
+          />
         </>
       ) : (
         <>

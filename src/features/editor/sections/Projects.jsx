@@ -1,10 +1,10 @@
-import buttonStyles from "../../../components/buttons.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
 import BulletListEditor from "../../../components/BulletListEditor";
 import SectionListItem from "../../../components/SectionListItem";
+import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const PROJECT_FIELDS = [
@@ -39,12 +39,13 @@ function Projects({ data, setData }) {
             ))}
           </ul>
 
-          <button
-            className={buttonStyles.addBtn + " " + buttonStyles.actionBtn}
-            onClick={addItem}
-          >
-            + ADD PROJECT
-          </button>
+          <SectionListActions
+            addLabel="ADD PROJECT"
+            onAdd={addItem}
+            onClearSection={() =>
+              setData((prev) => ({ ...prev, projects: [] }))
+            }
+          />
         </>
       ) : (
         <>

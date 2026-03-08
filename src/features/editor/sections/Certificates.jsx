@@ -1,9 +1,9 @@
-import buttonStyles from "../../../components/buttons.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
 import SectionListItem from "../../../components/SectionListItem";
+import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const CERTIFICATE_FIELDS = [
@@ -44,12 +44,13 @@ function Certificates({ data, setData }) {
             ))}
           </ul>
 
-          <button
-            className={buttonStyles.addBtn + " " + buttonStyles.actionBtn}
-            onClick={addItem}
-          >
-            + ADD CERTIFICATE
-          </button>
+          <SectionListActions
+            addLabel="ADD CERTIFICATE"
+            onAdd={addItem}
+            onClearSection={() =>
+              setData((prev) => ({ ...prev, certificates: [] }))
+            }
+          />
         </>
       ) : (
         <>

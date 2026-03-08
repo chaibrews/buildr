@@ -1,10 +1,10 @@
-import buttonStyles from "../../../components/buttons.module.css";
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
 import FormField from "../../../components/FormField";
 import BulletListEditor from "../../../components/BulletListEditor";
 import SectionListItem from "../../../components/SectionListItem";
+import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const EXPERIENCE_FIELDS = [
@@ -47,12 +47,13 @@ function Experience({ data, setData }) {
             ))}
           </ul>
 
-          <button
-            className={buttonStyles.addBtn + " " + buttonStyles.actionBtn}
-            onClick={addItem}
-          >
-            + ADD EXPERIENCE
-          </button>
+          <SectionListActions
+            addLabel="ADD EXPERIENCE"
+            onAdd={addItem}
+            onClearSection={() =>
+              setData((prev) => ({ ...prev, experience: [] }))
+            }
+          />
         </>
       ) : (
         <>

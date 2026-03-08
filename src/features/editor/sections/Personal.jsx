@@ -1,4 +1,5 @@
 import FormField from "../../../components/FormField";
+import buttonStyles from "../../../components/buttons.module.css";
 
 function Personal({ data, setData }) {
   function handleChange(e) {
@@ -40,6 +41,25 @@ function Personal({ data, setData }) {
         value={data.personal.linkGithub}
         onChange={handleChange}
       />
+
+      <button
+        type="button"
+        className={buttonStyles.dangerBtn + " " + buttonStyles.actionBtn}
+        onClick={() =>
+          setData((prev) => ({
+            ...prev,
+            personal: {
+              ...prev.personal,
+              name: "",
+              email: "",
+              linkPortfolio: "",
+              linkGithub: "",
+            },
+          }))
+        }
+      >
+        CLEAR
+      </button>
     </section>
   );
 }
