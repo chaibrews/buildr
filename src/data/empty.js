@@ -14,6 +14,7 @@ export const EMPTY_ITEMS = {
 
 export function emptyData() {
   return {
+    summary: { description: "" },
     personal: { name: "", email: "", linkPortfolio: "", linkGithub: "" },
     experience: [{ id: crypto.randomUUID(), ...EMPTY_ITEMS.experience }],
     education: [{ id: crypto.randomUUID(), ...EMPTY_ITEMS.education }],

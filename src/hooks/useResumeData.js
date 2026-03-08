@@ -4,7 +4,6 @@ import { emptyData, sampleData } from "../data";
 const STORAGE_KEY = "buildr-resume-v1";
 
 const DEFAULT_ORDER = [
-  "personal",
   "skills",
   "experience",
   "projects",
@@ -14,7 +13,7 @@ const DEFAULT_ORDER = [
 
 function migrateData(saved) {
   function toBullets(item) {
-    if (Array.isArray(item.bullets)) return item; // already migrated
+    if (Array.isArray(item.bullets)) return item;
     return {
       ...item,
       bullets: item.description?.split("\n").filter(Boolean) ?? [],
@@ -24,6 +23,7 @@ function migrateData(saved) {
 
   return {
     ...saved,
+    summary: saved.summary ?? { description: "" },
     experience: saved.experience?.map(toBullets) ?? [],
     education: saved.education?.map(toBullets) ?? [],
     projects: saved.projects?.map(toBullets) ?? [],

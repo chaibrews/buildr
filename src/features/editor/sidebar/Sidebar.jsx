@@ -11,6 +11,7 @@ import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import SortableSidebarItem from "./SortableSidebarItem";
 
 import personalIcon from "../../../assets/icons/personal.svg";
+import summaryIcon from "../../../assets/icons/text-box.svg";
 import skillsIcon from "../../../assets/icons/skills.svg";
 import experienceIcon from "../../../assets/icons/experience.svg";
 import projectsIcon from "../../../assets/icons/projects.svg";
@@ -21,10 +22,11 @@ import certificateIcon from "../../../assets/icons/certificate.svg";
    CONSTANTS
 ---------------------------------------- */
 
-const FIXED_SECTION = "personal";
+const FIXED_SECTIONS = ["personal", "summary"];
 
 const sectionIcons = {
   personal: personalIcon,
+  summary: summaryIcon,
   skills: skillsIcon,
   experience: experienceIcon,
   projects: projectsIcon,
@@ -42,37 +44,39 @@ function Sidebar({
   activeSection,
   setActiveSection,
 }) {
-  const sortableSections = sectionOrder.filter((id) => id !== FIXED_SECTION);
+  const sortableSections = sectionOrder.filter(
+    (id) => !FIXED_SECTIONS.includes(id),
+  );
 
   function handleDragEnd({ active, over }) {
     if (!over) return;
-    if (active.id === FIXED_SECTION || over.id === FIXED_SECTION) return;
+    if (FIXED_SECTIONS.includes(active.id) || FIXED_SECTIONS.includes(over.id))
+      return;
 
     setSectionOrder((prev) => {
-      const sortable = prev.filter((id) => id !== FIXED_SECTION);
+      const sortable = prev.filter((id) => !FIXED_SECTIONS.includes(id));
 
       const oldIndex = sortable.indexOf(active.id);
       const newIndex = sortable.indexOf(over.id);
 
       const reordered = arrayMove(sortable, oldIndex, newIndex);
 
-      return [FIXED_SECTION, ...reordered];
+      return [...FIXED_SECTIONS, ...reordered];
     });
   }
 
   return (
     <nav className={`${styles.sidebar} print-hide`}>
-      {/* ───────── FIXED PERSONAL (NOT DRAGGABLE) ───────── */}
-      <button
-        className={activeSection === FIXED_SECTION ? styles.active : ""}
-        onClick={() => setActiveSection(FIXED_SECTION)}
-      >
-        <img
-          src={sectionIcons[FIXED_SECTION]}
-          alt="Personal"
-          className={styles.icon}
-        />
-      </button>
+      {/* FIXED SECTIONS — not draggable */}
+      {FIXED_SECTIONS.map((id) => (
+        <button
+          key={id}
+          className={activeSection === id ? styles.active : ""}
+          onClick={() => setActiveSection(id)}
+        >
+          <img src={sectionIcons[id]} className={styles.icon} />
+        </button>
+      ))}
 
       {/* ───────── DRAGGABLE SECTIONS ───────── */}
       <DndContext

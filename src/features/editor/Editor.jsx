@@ -4,6 +4,7 @@ import styles from "./Editor.module.css";
 import buttonStyles from "../../components/buttons.module.css";
 
 import Sidebar from "./sidebar/Sidebar";
+import Summary from "./sections/Summary";
 import Personal from "./sections/Personal";
 import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
@@ -12,6 +13,7 @@ import Education from "./sections/Education";
 import Certificates from "./sections/Certificates";
 
 const SECTIONS = {
+  summary: Summary,
   personal: Personal,
   skills: Skills,
   experience: Experience,

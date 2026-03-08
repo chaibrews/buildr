@@ -1,16 +1,17 @@
 import styles from "./Preview.module.css";
-import SkillsSection from "./sections/SkillsPreview";
-import ExperienceSection from "./sections/ExperiencePreview";
-import EducationSection from "./sections/EducationPreview";
-import ProjectsSection from "./sections/ProjectsPreview";
-import CertificatesSection from "./sections/CertificatesPreview";
+import SummaryPreview from "./sections/SummaryPreview";
+import SkillsPreview from "./sections/SkillsPreview";
+import ExperiencePreview from "./sections/ExperiencePreview";
+import EducationPreview from "./sections/EducationPreview";
+import ProjectsPreview from "./sections/ProjectsPreview";
+import CertificatesPreview from "./sections/CertificatesPreview";
 
 const SECTION_RENDERERS = {
-  skills: SkillsSection,
-  experience: ExperienceSection,
-  education: EducationSection,
-  projects: ProjectsSection,
-  certificates: CertificatesSection,
+  skills: SkillsPreview,
+  experience: ExperiencePreview,
+  education: EducationPreview,
+  projects: ProjectsPreview,
+  certificates: CertificatesPreview,
 };
 
 function Preview({ data, sectionOrder }) {
@@ -61,6 +62,9 @@ function Preview({ data, sectionOrder }) {
             )}
           </header>
         )}
+
+        {/* PROFESSIONAL SUMMARY */}
+        <SummaryPreview summary={data.summary} />
 
         {/* ORDERED SECTIONS */}
         {sectionOrder.map((key) => {

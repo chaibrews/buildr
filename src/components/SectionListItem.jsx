@@ -1,5 +1,5 @@
 import styles from "./SectionListItem.module.css";
-import trashIcon from "../assets/icons/delete.svg";
+import buttonStyles from "../components/buttons.module.css";
 
 function SectionListItem({ label, onSelect, onDelete }) {
   return (
@@ -7,8 +7,8 @@ function SectionListItem({ label, onSelect, onDelete }) {
       <button className={styles.listItem} onClick={onSelect}>
         {label || "Untitled"}
       </button>
-      <button className={styles.trashBtn} onClick={onDelete}>
-        <img src={trashIcon} alt="Delete" className={styles.trashIcon} />
+      <button className={buttonStyles.deleteBtn} onClick={onDelete}>
+        ×
       </button>
     </li>
   );
