@@ -42,7 +42,7 @@ function Editor({
             className={buttonStyles.dangerBtn + " " + buttonStyles.actionBtn}
             onClick={onClear}
           >
-            CLEAR
+            CLEAR ALL
           </button>
         </div>
 
@@ -89,19 +89,21 @@ function Editor({
         </div>
       </div>
 
-      <div className={styles.editorSidebar}>
-        <Sidebar
-          activeSection={activeSection}
-          setActiveSection={setActiveSection}
-          sectionOrder={sectionOrder}
-          setSectionOrder={setSectionOrder}
-        />
-      </div>
+      <div className={styles.editorMain}>
+        <div className={styles.editorSidebar}>
+          <Sidebar
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+            sectionOrder={sectionOrder}
+            setSectionOrder={setSectionOrder}
+          />
+        </div>
 
-      <div className={styles.editorContent}>
-        {ActiveSectionComponent && (
-          <ActiveSectionComponent data={data} setData={setData} />
-        )}
+        <div className={styles.editorContent}>
+          {ActiveSectionComponent && (
+            <ActiveSectionComponent data={data} setData={setData} />
+          )}
+        </div>
       </div>
     </div>
   );
