@@ -43,3 +43,21 @@
   outline: none;
   background-color: #eef2f7;
 }
+
+.dragHandle {
+  cursor: grab;
+  color: var(--accent);
+  opacity: 0.3;
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+  user-select: none;
+}
+
+.dragHandle:hover {
+  opacity: 1;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
