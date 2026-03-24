@@ -1,3 +1,8 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+
 /* Section List Item */
 
 .listItem {
@@ -26,4 +31,27 @@
 
 .trashIcon {
   height: 20px;
+}
+
+.dragHandle {
+  cursor: grab;
+  transition: opacity 0.15s ease;
+
+  width: 6px;
+  height: 20px;
+
+  background-image: radial-gradient(
+    circle,
+    var(--accent) 1.2px,
+    transparent 1.2px
+  );
+  background-size: 3px 4px;
+  background-repeat: repeat;
+  opacity: 0.3;
+
+  flex-shrink: 0;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
 }

@@ -1,9 +1,23 @@
 import useEditableList from "../../../hooks/useEditableList";
 import { EMPTY_ITEMS } from "../../../data";
 
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  arrayMove,
+} from "@dnd-kit/sortable";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+
 import FormField from "../../../components/FormField";
 import BulletListEditor from "../../../components/BulletListEditor";
-import SectionListItem from "../../../components/SectionListItem";
+import SortableSectionListItem from "../../../components/SortableSectionListItem";
 import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
@@ -28,6 +42,18 @@ function Education({ data, setData }) {
     EMPTY_ITEMS.education,
   );
 
+  const sensors = useSensors(useSensor(PointerSensor));
+
+  function handleDragEnd({ active, over }) {
+    if (!over || active.id === over.id) return;
+    const oldIndex = data.education.findIndex((i) => i.id === active.id);
+    const newIndex = data.education.findIndex((i) => i.id === over.id);
+    setData((prev) => ({
+      ...prev,
+      education: arrayMove(prev.education, oldIndex, newIndex),
+    }));
+  }
+
   return (
     <section>
       <h2>Education</h2>
@@ -35,16 +61,29 @@ function Education({ data, setData }) {
       {/* LIST VIEW */}
       {activeId === null ? (
         <>
-          <ul>
-            {data.education.map((item) => (
-              <SectionListItem
-                key={item.id}
-                label={item.school}
-                onSelect={() => setActiveId(item.id)}
-                onDelete={() => deleteItem(item.id)}
-              />
-            ))}
-          </ul>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+            modifiers={[restrictToVerticalAxis]}
+          >
+            <SortableContext
+              items={data.education.map((i) => i.id)}
+              strategy={verticalListSortingStrategy}
+            >
+              <ul>
+                {data.education.map((item) => (
+                  <SortableSectionListItem
+                    key={item.id}
+                    id={item.id}
+                    label={item.school}
+                    onSelect={() => setActiveId(item.id)}
+                    onDelete={() => deleteItem(item.id)}
+                  />
+                ))}
+              </ul>
+            </SortableContext>
+          </DndContext>
 
           <SectionListActions
             addLabel="ADD EDUCATION"
