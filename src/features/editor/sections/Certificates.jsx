@@ -21,9 +21,9 @@ import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const CERTIFICATE_FIELDS = [
-  ["name", "NAME *"],
-  ["organization", "ORGANIZATION *"],
-  ["dateIssued", "ISSUE DATE *"],
+  ["name", "NAME"],
+  ["organization", "ORGANIZATION"],
+  ["dateIssued", "ISSUE DATE"],
 ];
 
 function Certificates({ data, setData }) {

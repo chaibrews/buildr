@@ -22,9 +22,9 @@ import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const EDUCATION_FIELDS = [
-  ["school", "SCHOOL *"],
-  ["degree", "DEGREE *"],
-  ["dateGraduated", "DATE OF GRADUATION *"],
+  ["school", "SCHOOL"],
+  ["degree", "DEGREE"],
+  ["dateGraduated", "DATE OF GRADUATION"],
 ];
 
 function Education({ data, setData }) {

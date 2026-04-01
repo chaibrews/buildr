@@ -22,8 +22,8 @@ import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const PROJECT_FIELDS = [
-  ["title", "TITLE *"],
-  ["link", "LINK *"],
+  ["title", "TITLE"],
+  ["link", "LINK"],
 ];
 
 function Projects({ data, setData }) {

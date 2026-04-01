@@ -22,10 +22,10 @@ import SectionListActions from "../../../components/SectionListActions";
 import SectionFormActions from "../../../components/SectionEditActions";
 
 const EXPERIENCE_FIELDS = [
-  ["company", "COMPANY *"],
-  ["position", "POSITION *"],
-  ["dateFrom", "START DATE *"],
-  ["dateTo", "END DATE *"],
+  ["company", "COMPANY"],
+  ["position", "POSITION"],
+  ["dateFrom", "START DATE"],
+  ["dateTo", "END DATE"],
 ];
 
 function Experience({ data, setData }) {
