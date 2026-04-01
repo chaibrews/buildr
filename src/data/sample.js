@@ -6,6 +6,7 @@ export const sampleData = {
   personal: {
     name: "Jane Doe",
     email: "jane@email.com",
+    linkedin: "https://www.linkedin.com/in/janedoe/",
     linkPortfolio: "janedoe.dev",
     linkGithub: "github.com/janedoe",
   },

@@ -28,6 +28,16 @@ function Preview({ data, sectionOrder }) {
         {personal.email}
       </a>
     ),
+    personal.linkedin && (
+      <a
+        key="linkedin"
+        href={`https://${personal.linkedin}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+    ),
     personal.linkPortfolio && (
       <a
         key="portfolio"
@@ -35,7 +45,7 @@ function Preview({ data, sectionOrder }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {personal.linkPortfolio}
+        Portfolio
       </a>
     ),
     personal.linkGithub && (
@@ -45,7 +55,7 @@ function Preview({ data, sectionOrder }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {personal.linkGithub}
+        GitHub
       </a>
     ),
   ].filter(Boolean);

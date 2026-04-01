@@ -15,16 +15,23 @@ function Personal({ data, setData }) {
       <h2>Personal Information</h2>
       <FormField
         name="name"
-        label="NAME *"
+        label="NAME"
         type="text"
         value={data.personal.name}
         onChange={handleChange}
       />
       <FormField
         name="email"
-        label="EMAIL *"
+        label="EMAIL"
         type="email"
         value={data.personal.email}
+        onChange={handleChange}
+      />
+      <FormField
+        name="linkedin"
+        label="LINKEDIN"
+        type="url"
+        value={data.personal.linkedin}
         onChange={handleChange}
       />
       <FormField
