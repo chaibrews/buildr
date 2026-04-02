@@ -30,6 +30,11 @@ select {
    ===================================================== */
 
 @media print {
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+  }
   /* Hide editor UI */
   .print-hide {
     display: none !important;
@@ -50,6 +55,9 @@ select {
     width: 210mm;
     height: 297mm;
     overflow: hidden;
+    padding: 12.7mm;
+    box-sizing: border-box;
+    overflow: visible;
   }
 
   /* Prevent scaling issues */
