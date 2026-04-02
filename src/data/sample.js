@@ -64,7 +64,8 @@ export const sampleData = {
   projects: [
     {
       id: crypto.randomUUID(),
-      title: "Project Name | Tech Stack",
+      title: "Project Name",
+      techStack: "React, Tailwind",
       link: "github.com/you/project",
       bullets: [
         "Only list projects that are real, deployed, and actively maintained — not tutorial clones.",
@@ -73,7 +74,8 @@ export const sampleData = {
     },
     {
       id: crypto.randomUUID(),
-      title: "Another Project | Tech Stack",
+      title: "Another Project",
+      techStack: "React, Node.js, PostgreSQL",
       link: "project.com",
       bullets: [
         "The more experience you have, the less projects matter.",

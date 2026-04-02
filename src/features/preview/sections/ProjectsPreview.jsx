@@ -13,7 +13,15 @@ function ProjectsSection({ projects }) {
             <div
               className={styles.spaceBetweenRow + " " + styles.beforeBullets}
             >
-              {proj.title && <strong>{proj.title}</strong>}
+              <div>
+                {proj.title && (
+                  <>
+                    <strong>{proj.title}</strong>
+                    {proj.techStack && <span> | {proj.techStack}</span>}
+                  </>
+                )}
+              </div>
+
               {proj.link && (
                 <a
                   href={`https://${proj.link}`}

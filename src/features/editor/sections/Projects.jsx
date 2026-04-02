@@ -23,6 +23,7 @@ import SectionFormActions from "../../../components/SectionEditActions";
 
 const PROJECT_FIELDS = [
   ["title", "TITLE"],
+  ["techStack", "TECH STACK"],
   ["link", "LINK"],
 ];
 

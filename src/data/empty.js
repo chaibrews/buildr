@@ -7,7 +7,7 @@ export const EMPTY_ITEMS = {
     bullets: [],
   },
   education: { school: "", degree: "", dateGraduated: "", bullets: [] },
-  projects: { title: "", link: "", bullets: [] },
+  projects: { title: "", techStack: "", link: "", bullets: [] },
   skills: { groupName: "", items: "" },
   certificates: { name: "", organization: "", dateIssued: "" },
 };
