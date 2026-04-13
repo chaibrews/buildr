@@ -28,6 +28,11 @@ function Preview({ data, sectionOrder }) {
         {personal.email}
       </a>
     ),
+    personal.phone && (
+      <a key="phone" href={`tel:${personal.phone}`}>
+        {personal.phone}
+      </a>
+    ),
     personal.linkedin && (
       <a
         key="linkedin"

@@ -28,6 +28,12 @@ function Personal({ data, setData }) {
         onChange={handleChange}
       />
       <FormField
+        name="phone"
+        label="PHONE NUMBER"
+        type="text"
+        value={data.personal.phone}
+      />
+      <FormField
         name="linkedin"
         label="LINKEDIN"
         type="url"
