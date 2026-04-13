@@ -29,7 +29,12 @@ function Preview({ data, sectionOrder }) {
       </a>
     ),
     personal.phone && (
-      <a key="phone" href={`tel:${personal.phone}`}>
+      <a
+        key="phone"
+        href={`tel:${personal.phone}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {personal.phone}
       </a>
     ),
