@@ -13,6 +13,8 @@ function App() {
     loadSample,
     exportData,
     importData,
+    settings,
+    setSettings,
   } = useResumeData();
 
   return (
@@ -20,7 +22,7 @@ function App() {
       <header className={`header print-hide`}>
         <div className="headerBrand">
           <span className="headerLogo">buildR.</span>
-          <span className="headerTagline">clean resumes. no fluff.</span>
+          <span className="headerTagline">clean resumes. </span>
         </div>
       </header>{" "}
       <div className="body">
@@ -34,8 +36,14 @@ function App() {
             onImport={importData}
             sectionOrder={sectionOrder}
             setSectionOrder={setSectionOrder}
+            settings={settings}
+            setSettings={setSettings}
           />
-          <Preview data={data} sectionOrder={sectionOrder} />
+          <Preview
+            data={data}
+            sectionOrder={sectionOrder}
+            settings={settings}
+          />
         </div>
       </div>
     </>

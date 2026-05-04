@@ -11,20 +11,34 @@
 }
 
 /* =====================================================
-   A4 PAGE
+   PAGE SHELL
    ===================================================== */
 
-.a4Page {
-  font-family: "Charter", serif;
-  width: 210mm;
-  height: 297mm;
+.a4Page,
+.letterPage,
+.legalPage {
   background: #fff;
-  padding: 1.27cm;
   box-sizing: border-box;
   overflow: hidden;
+  padding: 1.27cm;
 }
 
-.a4InsideMargin {
+.a4Page {
+  width: 210mm;
+  height: 297mm;
+}
+
+.letterPage {
+  width: 8.5in;
+  height: 11in;
+}
+
+.legalPage {
+  width: 8.5in;
+  height: 14in;
+}
+
+.insidemargin {
   padding: 0 0.5mm;
   height: 100%;
   color: #000;
@@ -48,24 +62,24 @@
    ===================================================== */
 
 /* NAME */
-.a4InsideMargin h1 {
-  font-size: 24pt;
+.insidemargin h1 {
+  font-size: 2.2em;
   font-weight: 400;
   margin-bottom: 1mm;
 }
 
 /* SECTION HEADERS */
-.a4InsideMargin h2 {
-  font-size: 14pt;
+.insidemargin h2 {
+  font-size: 1.2em;
   margin-bottom: 1mm;
   border-bottom: 1px solid #000;
 }
 
-.a4InsideMargin p {
+.insidemargin p {
   line-height: 1.2;
 }
 
-.a4InsideMargin a {
+.insidemargin a {
   color: inherit;
   text-decoration: none;
 }
@@ -74,7 +88,7 @@
    SECTIONS & ROWS
    ===================================================== */
 
-.a4InsideMargin section {
+.insidemargin section {
   margin-bottom: 4mm;
   break-inside: avoid;
 }

@@ -11,6 +11,7 @@ import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Education from "./sections/Education";
 import Certificates from "./sections/Certificates";
+import CustomizePanel from "../customize/CustomizePanel";
 
 const SECTIONS = {
   summary: Summary,
@@ -31,6 +32,8 @@ function Editor({
   onLoadSample,
   sectionOrder,
   setSectionOrder,
+  settings,
+  setSettings,
 }) {
   const [activeSection, setActiveSection] = useState("personal");
   const ActiveSectionComponent = SECTIONS[activeSection];
@@ -102,8 +105,12 @@ function Editor({
         </div>
 
         <div className={styles.editorContent}>
-          {ActiveSectionComponent && (
-            <ActiveSectionComponent data={data} setData={setData} />
+          {activeSection === "customize" ? (
+            <CustomizePanel settings={settings} setSettings={setSettings} />
+          ) : (
+            ActiveSectionComponent && (
+              <ActiveSectionComponent data={data} setData={setData} />
+            )
           )}
         </div>
       </div>

@@ -14,7 +14,7 @@ const SECTION_RENDERERS = {
   certificates: CertificatesPreview,
 };
 
-function Preview({ data, sectionOrder }) {
+function Preview({ data, sectionOrder, settings }) {
   const { personal } = data;
 
   const contactLinks = [
@@ -70,10 +70,25 @@ function Preview({ data, sectionOrder }) {
     ),
   ].filter(Boolean);
 
+  const paperClass =
+    settings?.paperSize === "letter"
+      ? styles.letterPage
+      : settings?.paperSize === "legal"
+        ? styles.legalPage
+        : styles.a4Page;
+
+  const previewStyle = {
+    fontFamily: `'${settings?.fontFamily ?? "Charter"}', serif`,
+    fontSize: `${settings?.fontSize ?? 10}pt`,
+  };
+
   return (
-    <div className={`${styles.previewLayout} print-preview-layout`}>
-      <div className={`${styles.a4Page} print-a4`}>
-        <div className={`${styles.a4InsideMargin}`}>
+    <div
+      className={`${styles.previewLayout} print-preview-layout`}
+      data-paper-size={settings?.paperSize ?? "a4"}
+    >
+      <div className={`${paperClass} print-page`} style={previewStyle}>
+        <div className={`${styles.insidemargin}`}>
           {/* PERSONAL HEADER */}
           {(personal.name || contactLinks.length > 0) && (
             <header className={styles.previewHeader}>

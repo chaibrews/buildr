@@ -17,7 +17,12 @@ function ProjectsSection({ projects }) {
                 {proj.title && (
                   <>
                     <strong>{proj.title}</strong>
-                    {proj.techStack && <span> | {proj.techStack}</span>}
+                    {proj.techStack && (
+                      <span>
+                        {" "}
+                        | <i>{proj.techStack}</i>
+                      </span>
+                    )}
                   </>
                 )}
               </div>

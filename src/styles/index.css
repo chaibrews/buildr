@@ -51,13 +51,25 @@ select {
   }
 
   /* The a4 page itself */
-  .print-a4 {
-    width: 210mm;
-    height: 297mm;
-    overflow: hidden;
-    padding: 12.7mm;
+  .print-page {
     box-sizing: border-box;
     overflow: visible;
+    padding: 12.7mm;
+  }
+
+  [data-paper-size="a4"] .print-page {
+    width: 210mm;
+    height: 297mm;
+  }
+
+  [data-paper-size="letter"] .print-page {
+    width: 8.5in;
+    height: 11in;
+  }
+
+  [data-paper-size="legal"] .print-page {
+    width: 8.5in;
+    height: 14in;
   }
 
   /* Prevent scaling issues */
@@ -75,6 +87,6 @@ select {
    ===================================================== */
 
 @page {
-  size: A4;
+  size: auto;
   margin: 0;
 }

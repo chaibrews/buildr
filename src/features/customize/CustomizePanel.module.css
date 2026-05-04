@@ -1,0 +1,251 @@
+.panel {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 24px;
+}
+
+.headerRow {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.headerRow h2 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.helperText {
+  color: #c7d1ea;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 520px;
+}
+
+.resetButton {
+  align-items: center;
+  background: transparent;
+  border: 1px solid #bdb2ff66;
+  border-radius: 5px;
+  color: var(--accent);
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  min-height: 34px;
+  padding: 0 14px;
+  text-transform: uppercase;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.resetButton:hover {
+  background: #bdb2ff14;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.resetButton:focus-visible,
+.option:focus-visible,
+.optionActive:focus-visible,
+.sizeButton:focus-visible,
+.sizeActive:focus-visible,
+.select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.cardGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  background: #242c3f;
+  border: 1px solid #bdb2ff33;
+  border-radius: 5px;
+  box-shadow: 0 14px 32px #0b10201f;
+  padding: 16px;
+}
+
+.cardHeader {
+  margin-bottom: 14px;
+}
+
+.cardHeader h3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.cardHeader p {
+  color: #c7d1ea;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.segmentedGroup,
+.sizeButtons {
+  display: grid;
+  gap: 10px;
+}
+
+.segmentedGroup {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sizeButtons {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.option,
+.optionActive,
+.sizeButton,
+.sizeActive {
+  background: #1f2533;
+  border: 1px solid #bdb2ff33;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 12px;
+  text-align: left;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+
+.option:hover,
+.sizeButton:hover {
+  border-color: #bdb2ff99;
+  transform: translateY(-1px);
+}
+
+.optionActive,
+.sizeActive {
+  background: #bdb2ff1f;
+  border-color: var(--accent);
+  box-shadow:
+    inset 3px 0 0 var(--accent),
+    0 10px 24px #0b102024;
+}
+
+.option strong,
+.optionActive strong,
+.sizeButton strong,
+.sizeActive strong,
+.option span,
+.optionActive span,
+.sizeButton span,
+.sizeActive span {
+  display: block;
+}
+
+.option strong,
+.optionActive strong {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.option span,
+.optionActive span,
+.sizeButton span,
+.sizeActive span {
+  color: #c7d1ea;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.sizeButton strong,
+.sizeActive strong {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.fieldLabel {
+  color: var(--accent);
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 7px;
+}
+
+.select {
+  appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, #1f2533 50%) right 14px center / 6px
+      6px no-repeat,
+    linear-gradient(135deg, #1f2533 50%, transparent 50%) right 9px center / 6px
+      6px no-repeat,
+    #eef2f7;
+  border: 1px solid #ffffff33;
+  border-radius: 5px;
+  color: #111827;
+  font-size: 14px;
+  min-height: 40px;
+  padding: 0 36px 0 12px;
+  width: 100%;
+}
+
+.select:focus {
+  background-color: #ffffff;
+  outline: none;
+}
+
+.fontPreview {
+  background: #ffffff;
+  border: 1px solid #ffffffcc;
+  border-radius: 5px;
+  color: #111827;
+  display: grid;
+  gap: 4px;
+  line-height: 1.45;
+  margin-top: 12px;
+  padding: 8px 14px;
+}
+
+.fontPreview span {
+  color: #4b5563;
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .headerRow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .resetButton {
+    justify-content: center;
+    width: fit-content;
+  }
+
+  .segmentedGroup,
+  .sizeButtons {
+    grid-template-columns: 1fr;
+  }
+}

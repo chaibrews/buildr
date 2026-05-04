@@ -17,6 +17,7 @@ import experienceIcon from "../../../assets/icons/experience.svg";
 import projectsIcon from "../../../assets/icons/projects.svg";
 import educationIcon from "../../../assets/icons/education.svg";
 import certificateIcon from "../../../assets/icons/certificate.svg";
+import customizeIcon from "../../../assets/icons/text-format.svg";
 
 /* ----------------------------------------
    CONSTANTS
@@ -99,6 +100,18 @@ function Sidebar({
           ))}
         </SortableContext>
       </DndContext>
+
+      <div className={styles.sidebarDivider} />
+
+      <button
+        className={`${styles.customizeButton} ${
+          activeSection === "customize" ? styles.active : ""
+        }`}
+        title="Customize"
+        onClick={() => setActiveSection("customize")}
+      >
+        <img src={customizeIcon} className={styles.customizeIcon} />
+      </button>
     </nav>
   );
 }

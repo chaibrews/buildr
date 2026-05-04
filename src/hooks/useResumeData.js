@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { emptyData, sampleData } from "../data";
+import { DEFAULT_RESUME_SETTINGS } from "../data/settings";
 
 const STORAGE_KEY = "buildr-resume-v1";
+const SETTINGS_STORAGE_KEY = "buildr:resumeSettings";
 
 const DEFAULT_ORDER = [
   "skills",
@@ -30,6 +32,13 @@ function migrateData(saved) {
   };
 }
 
+function migrateSettings(saved) {
+  return {
+    ...DEFAULT_RESUME_SETTINGS,
+    ...(saved ?? {}),
+  };
+}
+
 export default function useResumeData() {
   const [data, setData] = useState(() => {
     try {
@@ -46,6 +55,17 @@ export default function useResumeData() {
       return saved ? JSON.parse(saved) : DEFAULT_ORDER;
     } catch {
       return DEFAULT_ORDER;
+    }
+  });
+
+  const [settings, setSettings] = useState(() => {
+    try {
+      const saved = localStorage.getItem(SETTINGS_STORAGE_KEY);
+      return saved
+        ? migrateSettings(JSON.parse(saved))
+        : DEFAULT_RESUME_SETTINGS;
+    } catch {
+      return DEFAULT_RESUME_SETTINGS;
     }
   });
 
@@ -67,20 +87,37 @@ export default function useResumeData() {
     }
   }, [sectionOrder]);
 
+  // Persist design settings
+  useEffect(() => {
+    try {
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+    } catch {
+      // silent fail (private mode / storage full)
+    }
+  }, [settings]);
+
   function clearResume() {
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem("buildr:sectionOrder");
+    localStorage.removeItem(SETTINGS_STORAGE_KEY);
     setData(emptyData());
     setSectionOrder(DEFAULT_ORDER);
+    setSettings(DEFAULT_RESUME_SETTINGS);
   }
 
   function loadSample() {
     setData(sampleData);
     setSectionOrder(DEFAULT_ORDER);
+    setSettings(DEFAULT_RESUME_SETTINGS);
   }
 
   function exportData() {
-    const json = JSON.stringify(data, null, 2);
+    const payload = {
+      data,
+      sectionOrder,
+      settings,
+    };
+    const json = JSON.stringify(payload, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -97,7 +134,10 @@ export default function useResumeData() {
     reader.onload = (event) => {
       try {
         const parsed = JSON.parse(event.target.result);
-        setData(migrateData(parsed));
+        const importedData = parsed.data ?? parsed;
+        setData(migrateData(importedData));
+        if (Array.isArray(parsed.sectionOrder)) setSectionOrder(parsed.sectionOrder);
+        if (parsed.settings) setSettings(migrateSettings(parsed.settings));
       } catch {
         alert("Invalid file. Please upload a valid buildR JSON file.");
       }
@@ -110,6 +150,8 @@ export default function useResumeData() {
     setData,
     sectionOrder,
     setSectionOrder,
+    settings,
+    setSettings,
     clearResume,
     loadSample,
     exportData,
